@@ -4,7 +4,8 @@ def isOdd(n):
     else:
         return True
 def rangeCheck(n, r1, r2):
-    R = range(r1, r2)
+    r2 += 1
+    R = range(r1, r2, 1)
     return n in R
     
 
