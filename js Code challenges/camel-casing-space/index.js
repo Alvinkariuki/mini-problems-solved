@@ -3,18 +3,21 @@ function isUpper(character) {
 }
 
 function camelCaseSeperator(string) {
-  if (string.length === 0) return string;
-  let arr = [];
+  return string.split("").reduce((acc, val) => {
+    isUpper(val) ? (acc += " " + val) : (acc += val);
+    return acc;
+  }, "");
 
-  for (let i = 0; i < string.length; i++) {
-    if (isUpper(string[i])) {
-      arr.push(" ");
-      arr.push(string[i]);
-      continue;
-    }
-  }
+  // for (let i = 0; i < string.length; i++) {
+  //   if (isUpper(string[i])) {
+  //     arr.push(" ");
+  //     arr.push(string[i]);
+  //     continue;
+  //   }
+  //   arr.push(string[i]);
+  // }
 
-  console.log(arr.join().replace(/,/g, ""));
+  // console.log(arr.join().replace(/,/g, ""));
 }
 
-camelCaseSeperator("");
+console.log(camelCaseSeperator("camelCase"));
