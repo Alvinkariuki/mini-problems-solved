@@ -1,11 +1,15 @@
 function calculateArrayScore(arr, alphabetArray) {
   let score = 0;
-  // Calculate value of each character
-  for (let i = 0; i < arr.length; i++) {
-    score += alphabetArray.indexOf(arr[i]) + 1;
-  }
 
-  return score;
+  return arr.reduce((acc, val) => {
+    return (acc += alphabetArray.indexOf(val) + 1);
+  }, 0);
+  // Calculate value of each character
+  // for (let i = 0; i < arr.length; i++) {
+  //   score += alphabetArray.indexOf(arr[i]) + 1;
+  // }
+
+  // return score;
 }
 
 function highScore(x) {
@@ -25,4 +29,4 @@ function highScore(x) {
   return x[wordScoreIdx.indexOf(Math.max(...wordScoreIdx))];
 }
 
-highScore("man i need a taxi up to ubud");
+console.log(highScore("man i need a taxi up to ubud"));
